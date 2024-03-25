@@ -1,12 +1,14 @@
 FROM ubuntu
 
-RUN apt-get update -y && DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake git python3 curl unzip xz-utils
+RUN apt-get update -y && DEBIAN_FRONTEND="noninteractive" apt-get -y install cmake git python3 curl unzip
 
-COPY emsdk /opt/emsdk
-RUN cd /opt&& cd emsdk && \
+RUN cd /opt && git clone https://github.com/emscripten-core/emsdk.git && cd emsdk && \
     ./emsdk install latest && ./emsdk activate latest
 
 COPY third_party /app/third_party
+RUN cd /app/third_party && mkdir triangle && cd triangle && \
+    curl http://www.netlib.org/voronoi/triangle.zip -O && \
+    unzip triangle.zip && rm triangle.zip
 
 COPY data /app/data
 COPY src /app/src
