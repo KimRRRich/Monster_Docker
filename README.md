@@ -17,6 +17,6 @@ Disclaimer: This is not an officially supported Google product.
 Create a local version of http://MonsterMash.zone (without any images/asssets).
 
 ```bash
-docker build . monstermash
+sudo docker build -t monstermash .
 docker run -p 8000:8000 monstermash
 ```
