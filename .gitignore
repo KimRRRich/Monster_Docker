@@ -1,4 +1,1 @@
-
-*.zip
-third_party/triangle/
-src/build/
+src/build
