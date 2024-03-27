@@ -19,7 +19,8 @@ RUN /bin/bash -c "source "/opt/emsdk/emsdk_env.sh" && \
 WORKDIR /app/src/build/Release
 
 RUN mkdir includes && cd includes && \
-    cp ../../../ui/* . && \
+    cp -r ../../../ui/* . && \
+    cp -r ../../../ui/imgs . &&\
     cp ../../../../third_party/FileSaver/FileSaver.js . && \
     cp ../../../../third_party/emscripten-ui/module.js .
 
