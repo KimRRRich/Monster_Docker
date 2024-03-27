@@ -18,5 +18,10 @@ Create a local version of http://MonsterMash.zone (without any images/asssets).
 
 ```bash
 sudo docker build -t monstermash .
-docker run -p 8000:8000 monstermash
+sudo docker run -p 8000:8000 monstermash
+```
+
+```bash
+sudo docker exec -it <ContainerID> bash
+docker cp -a <ContainerID>:/app/src/build/ /home/zhouxiao/Documents/DockerCP/
 ```
